@@ -1,0 +1,87 @@
+@import url("file:///home/dustparticle/.cache/hellwal/waybar-colors.css");
+
+@define-color rice-bg #10130F;
+@define-color rice-surface #171815;
+@define-color rice-green #596044;
+@define-color rice-green-bright #7F9360;
+@define-color rice-green-soft #A8B58A;
+@define-color rice-text #E8E6DC;
+@define-color rice-muted #8D9582;
+
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+}
+
+window#waybar {
+    background: alpha(@background, 0.65);
+    color: @foreground;
+    /* min-height: 6px; */
+}
+
+#workspaces {
+    margin-left: 10px;
+    /* border: solid green; */
+}
+
+#workspaces button {
+    padding: 0;
+    margin:8px -3px;
+
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    /* background: rgba(255, 255, 255, 0.35); */
+
+    min-width: 32px;
+    min-height: 0;
+}
+
+
+#workspaces button label {
+    padding: 0;
+    margin: 0;
+
+    min-width: 8px;
+    min-height: 5px;
+
+    border-radius: 999px;
+    background: @color5;
+
+    font-size: 0;
+
+    transition:
+        min-width 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 0.2s ease;
+
+}
+
+#workspaces button.active label {
+    min-width: 22px;
+    background: @color13;
+}
+
+#clock,
+#network,
+#pulseaudio,
+#battery,
+#tray {
+    padding: 0 10px;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#battery.warning {
+    color: #ffcc66;
+}
+
+#battery.critical {
+    color: #ff5555;
+}
+
+#custom-cliamp {
+  padding: 0 8px;
+}

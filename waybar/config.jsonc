@@ -1,0 +1,88 @@
+{
+    "layer": "top",
+    "position": "top",
+
+    "height": 25,
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "custom/cliamp",
+        "network",
+        "pulseaudio",
+        "battery",
+        "tray"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "format": "{}",
+        "persistent-workspaces": {
+          "*": 5
+        }
+    },
+
+    "clock": {
+        "format": "{:%a %d %b  %H:%M}",
+        "tooltip": false
+    },
+
+    "custom/cliamp": {
+      "exec": "~/.config/waybar/scripts/cliamp-scroll.sh",
+      "interval": 1.2,
+      "format": "{}",
+      "return-type": "string",
+      "on-click": "cliamp toggle",
+      "on-click-right": "cliamp next",
+      "on-click-middle": "cliamp prev",
+      "on-scroll-up": "cliamp volume +2",
+      "on-scroll-down": "cliamp volume -2"
+      },
+
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip": true
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 muted",
+        "format-icons": {
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        }
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰂂",
+            "󰁹"
+        ],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
+    },
+
+    "tray": {
+        "spacing": 8
+    }
+}
