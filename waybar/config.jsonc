@@ -13,6 +13,7 @@
     ],
 
     "modules-right": [
+        "custom/thecount",
         "custom/cliamp",
         "network",
         "pulseaudio",
@@ -45,6 +46,12 @@
       "on-scroll-up": "cliamp volume +2",
       "on-scroll-down": "cliamp volume -2"
       },
+
+    "custom/thecount": {
+      "exec": "/home/dustparticle/dotfiles/scripts/thecount.sh",
+      "interval": 1,
+      "format": "{}"
+    },
 
     "network": {
         "format-wifi": "󰤨 {essid}",
