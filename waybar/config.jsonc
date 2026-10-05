@@ -54,14 +54,15 @@
     },
 
     "network": {
-        "format-wifi": "󰤨 {essid}",
+        "format-wifi": "{icon}   {essid}",
+        "format-icons":"󰤨 " ,
         "format-ethernet": "󰈀",
         "format-disconnected": "󰤭",
         "tooltip": true
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume}%",
         "format-muted": "󰝟 muted",
         "format-icons": {
             "default": [
@@ -73,7 +74,7 @@
     },
 
     "battery": {
-        "format": "{icon} {capacity}%",
+        "format": "{icon}  {capacity}%",
         "format-icons": [
             "󰂎",
             "󰁺",
