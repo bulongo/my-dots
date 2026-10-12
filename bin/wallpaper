@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ -z "$1" ]]; then
+    echo "Usage: wallpaper <image>"
+    exit 1
+fi
+
+IMAGE="$1"
+
+if [[ ! -f "$IMAGE" ]]; then
+    echo "Error: image not found: $IMAGE"
+    exit 1
+fi
+
+echo "Setting wallpaper: $IMAGE"
+
+# Change wallpaper
+awww img "$IMAGE" \
+    --transition-type=random \
+    --transition-duration=1
+
+# Give the transition time to finish
+sleep 1
+
+# Generate colors
+hellwal -i "$IMAGE" \
+    -s ~/.config/hellwal/scripts/tmux.sh
+
+# Reload applications using the new colors
+makoctl reload
+~/.config/hellwal/scripts/fuzzel.sh
+
+# Restart Waybar
+~/.config/waybar/scripts/launch.sh
+
+# Give the transition time to finish
+sleep 1
+
+# Notify only after everything is updated
+notify-send "${IMAGE##*/} set as wallpaper"

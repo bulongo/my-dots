@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -e
+
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+
+IMAGE=$(find "$WALLPAPER_DIR" -type f \
+    \( -iname '*.jpg' \
+    -o -iname '*.jpeg' \
+    -o -iname '*.png' \
+    -o -iname '*.webp' \
+    -o -iname '*.gif' \) \
+    -printf '%f\n' |
+    sort |
+    fuzzel --dmenu --prompt "Wallpaper > ")
+
+[[ -z "$IMAGE" ]] && exit 0
+
+"$HOME/.local/bin/wallpaper" "$WALLPAPER_DIR/$IMAGE"
+
+
+!/usr/bin/env bash
+
+# set -e
+#
+# WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+#
+# IMAGE=$(find "$WALLPAPER_DIR" -type f \
+#     \( -iname '*.jpg' \
+#     -o -iname '*.jpeg' \
+#     -o -iname '*.png' \
+#     -o -iname '*.webp' \
+#     -o -iname '*.gif' \) |
+#     sort |
+#     fzf \
+#         --height=100% \
+#         --layout=reverse \
+#         --border \
+#         --preview-window='right:60%' \
+#         --preview='kitty +kitten icat --clear --transfer-mode=memory --stdin=no --place=60x30@50x10 {}' \
+#         --prompt="Wallpaper > ")
+#
+# [[ -z "$IMAGE" ]] && exit 0
+#
+# "$HOME/.local/bin/wallpaper" "$IMAGE"
