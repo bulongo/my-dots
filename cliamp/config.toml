@@ -1,0 +1,8 @@
+theme = ""
+
+visualizer = "Matrix"
+[ytmusic]
+enabled = true
+
+[spotify]
+bitrate   = 320
